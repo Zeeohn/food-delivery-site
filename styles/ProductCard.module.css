@@ -1,0 +1,44 @@
+.container {
+  width: 22%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 1px 1px 5px 2px grey;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #d1411e;
+  text-align: center;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+}
+
+.description {
+  text-align: center;
+  color: #777;
+}
+
+@media (prefers-color-scheme: dark) {
+  .price {
+    color: white;
+  }
+  .description {
+    color: white;
+  }
+}
