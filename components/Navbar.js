@@ -21,7 +21,6 @@ const Navbar = () => {
       <div className={styles.item}>
         <ul className={styles.list}>
           <li className={styles.listItem}>Home</li>
-          <li className={styles.listItem}>Products</li>
           <Image
             src="/images/logo.png"
             alt="Crown Shawarma Logo"
@@ -29,8 +28,7 @@ const Navbar = () => {
             height="53"
             className={styles.logo}
           />
-          <li className={styles.listItem}>Menu</li>
-          <li className={styles.listItem}>Contact</li>
+          <li className={styles.listItem}>Menus</li>
         </ul>
       </div>
       <div className={styles.item}>

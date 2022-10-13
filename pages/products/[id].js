@@ -12,6 +12,7 @@ const Product = () => {
               <Image
                 src={item.img}
                 layout="fill"
+                objectFit="contain"
                 alt={item.alt}
                 style={{ borderRadius: "50%" }}
               />
