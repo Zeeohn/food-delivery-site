@@ -12,7 +12,8 @@ const Product = () => {
               <Image
                 src={item.img}
                 layout="fill"
-                objectFit="contain"
+                objectFit="fill"
+                objectPosition="center"
                 alt={item.alt}
                 style={{ borderRadius: "50%" }}
               />
@@ -22,7 +23,7 @@ const Product = () => {
             <h1 className={styles.title}>{item.titles}</h1>
             <span className={styles.price}>₦{item.prices[0]}</span>
             <p className={styles.description}>{item.description}</p>
-            <h3 className={styles.choose}>Choose additional items</h3>
+            <h3 className={styles.choose}>Extras: </h3>
             <div className={styles.drinks}>
               <div className={styles.option}>
                 <input

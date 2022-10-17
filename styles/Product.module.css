@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 100px);
+  height: calc(70vh - 100px);
   display: flex;
 }
 
@@ -18,8 +18,9 @@
 
 .imgContainer {
   width: 80%;
-  height: 80%;
+  height: 90%;
   position: relative;
+  border-radius: 50%;
 }
 
 .price {
@@ -60,4 +61,48 @@
   border: none;
   font-weight: 500;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    height: auto !important;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .imgContainer {
+    width: 70vw;
+    height: 70vw;
+  }
+  .title {
+    margin: 5px;
+  }
+  .choose {
+    margin-bottom: 0px;
+    text-align: left;
+  }
+  .drinks {
+    flex-direction: column;
+  }
+  .option {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .checkbox {
+    width: 25px;
+    height: 25px;
+  }
+  .quantity,
+  .button {
+    height: 50px;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: calc(50vh - 100px);
+    display: flex;
+    margin-bottom: 20px;
+  }
 }

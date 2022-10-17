@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  box-shadow: 0px 1px 6px 2px black;
 }
 
 .item {
@@ -17,7 +18,7 @@
 }
 
 .item:nth-child(2) {
-  flex: 3;
+  flex: 1;
   justify-content: center;
 }
 
@@ -28,9 +29,9 @@
 .callButton {
   background-color: white;
   border-radius: 50%;
-  padding: 10px 10px 10px 10px;
-  width: 50px;
-  height: 50px;
+  padding: 5px 5px 5px 5px;
+  width: 30px;
+  height: 30px;
 }
 
 .texts {
@@ -94,8 +95,11 @@
   .callButton {
     background-color: white;
     border-radius: 50%;
-    padding: 10px 10px 10px 10px;
-    width: 30px;
-    height: 30px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .item:nth-child(3) {
+    padding-right: 10px;
   }
 }

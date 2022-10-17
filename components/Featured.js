@@ -7,7 +7,7 @@ const Featured = () => {
 
   const images = ["/images/slider-1.gif", "/images/slider-2.gif"];
 
-  const imagesM = ["images/slider-m-1.gif", "images/slider-m-2.gif"];
+  const imagesM = ["/images/slider-m-1.gif", "/images/slider-m-2.gif"];
 
   const handleArrow = (direction) => {
     if (direction === "l") {
@@ -39,6 +39,11 @@ const Featured = () => {
         {images.map((img, i) => (
           <div className={styles.imgContainer} key={i}>
             <Image src={img} alt="Hero image" width={1280} height={720} />
+          </div>
+        ))}
+        {imagesM.map((imgM, ig) => (
+          <div className={styles.imgMContainer} key={ig}>
+            <Image src={imgM} alt="Hero image" width={810} height={1440} />
           </div>
         ))}
       </div>

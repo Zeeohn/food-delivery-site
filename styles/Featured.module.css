@@ -2,6 +2,7 @@
   height: calc(100vh - 100);
   background-color: #d1411e;
   overflow: hidden;
+  position: relative;
 }
 
 .arrowContainer {
@@ -9,7 +10,7 @@
   width: 10%;
   height: 20%;
   top: 0;
-  bottom: 25%;
+  bottom: 0;
   margin: auto;
   cursor: pointer;
   z-index: 2;
@@ -28,4 +29,21 @@
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.imgMContainer {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .imgContainer {
+    display: none;
+  }
+  .imgMContainer {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    justify-content: center;
+  }
 }

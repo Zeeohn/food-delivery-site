@@ -17,3 +17,15 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 480px) {
+  .title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .description {
+    width: 90%;
+    text-align: center;
+    font-size: 22px;
+  }
+}

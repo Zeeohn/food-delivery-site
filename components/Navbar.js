@@ -1,5 +1,6 @@
 import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -20,7 +21,9 @@ const Navbar = () => {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <li className={styles.listItem}>Home</li>
+          <Link href="/">
+            <li className={styles.listItem}>Home</li>
+          </Link>
           <Image
             src="/images/logo.png"
             alt="Crown Shawarma Logo"
@@ -28,7 +31,11 @@ const Navbar = () => {
             height="53"
             className={styles.logo}
           />
-          <li className={styles.listItem}>Menus</li>
+          <Link href="/#menus">
+            <a>
+              <li className={styles.listItem}>Menus</li>
+            </a>
+          </Link>
         </ul>
       </div>
       <div className={styles.item}>

@@ -21,6 +21,11 @@
 .title {
   font-size: 18px;
   color: #b7903c;
+  position: relative;
+}
+
+.text {
+  color: lightgray;
 }
 
 .dev {
@@ -29,8 +34,33 @@
   justify-content: center;
   font-size: 14px;
   background-color: #222;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  color: white;
+  padding: 5px 2px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .dev {
+    font-size: 12px;
+  }
+
+  .title::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    bottom: -4px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+    background: #b7903c;
+  }
 }

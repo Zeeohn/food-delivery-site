@@ -12,6 +12,10 @@
   box-shadow: 1px 1px 5px 2px grey;
 }
 
+.container:hover {
+  box-shadow: none;
+}
+
 .image {
   border-radius: 50%;
 }
@@ -34,11 +38,36 @@
   color: #777;
 }
 
+.view {
+  height: 30px;
+  background-color: #d1411e;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 0px 40px;
+}
+
 @media (prefers-color-scheme: dark) {
   .price {
     color: white;
   }
   .description {
     color: white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .price,
+  .description {
+    font-size: 24px;
   }
 }

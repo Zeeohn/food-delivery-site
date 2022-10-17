@@ -10,7 +10,7 @@ const ProductList = () => {
         finest and nutritious ingredients to prepare some of the hottest
         desserts 😋🔥🔥.
       </p>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} id="menus">
         <ProductCard />
       </div>
     </div>

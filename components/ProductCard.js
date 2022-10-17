@@ -19,6 +19,7 @@ const ProductCard = () => {
           <h1 className={styles.title}>{item.titles}</h1>
           <span className={styles.price}>{item.prices[1]}</span>
           <p className={styles.description}>{item.description}</p>
+          <button className={styles.view}>View</button>
         </div>
       ))}
     </>

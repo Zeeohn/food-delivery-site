@@ -16,7 +16,7 @@ const Order = () => {
         <div className={styles.row}>
           <table className={styles.table}>
             <thead>
-              <tr className={styles.tr}>
+              <tr className={styles.trTitle}>
                 <th>Order ID</th>
                 <th>Customer</th>
                 <th>Address</th>
@@ -24,19 +24,19 @@ const Order = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
+              <tr className={styles.tr}>
+                <td className={styles.item}>
                   <span className={styles.id}>12623472347</span>
                 </td>
-                <td>
+                <td className={styles.item}>
                   <span className={styles.name}>David Adekunle</span>
                 </td>
-                <td>
+                <td className={styles.item}>
                   <span className={styles.address}>
                     No.4 Fort Royal Estate, Airport Road, Abuja.
                   </span>
                 </td>
-                <td>
+                <td className={styles.item}>
                   <span className={styles.total}>₦3800</span>
                 </td>
               </tr>

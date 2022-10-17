@@ -26,6 +26,11 @@
   font-weight: 500;
   color: #d1411e;
   font-size: 18px;
+  text-align: center;
+}
+
+.nameAlign {
+  text-align: center;
 }
 
 .total {
@@ -65,4 +70,82 @@
 
 .button:hover {
   background-color: #d1421a9f;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 1px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .name {
+    text-align: center;
+  }
+
+  .trTitle {
+    display: none;
+  }
+
+  .tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .imgContainer {
+    width: 35vw;
+    height: 35vw;
+  }
+
+  .nameAlign {
+    text-align: center;
+  }
+
+  .name,
+  .total {
+    font-size: 22px;
+  }
+
+  .extras,
+  .price,
+  .quantity {
+    font-size: 20px;
+  }
+
+  .price::before {
+    content: "Price: ";
+    font-weight: 500;
+  }
+
+  .quantity::before {
+    content: "Quantity: ";
+    font-weight: 500;
+  }
+
+  .total::before {
+    content: "Total: ";
+    font-weight: 500;
+  }
+
+  .pad {
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
 }

@@ -10,18 +10,21 @@ const Footer = () => {
             <Image
               src="/images/logo.png"
               layout="fill"
+              objectFit="contain"
               alt="Crown shawarma logo"
             />
           </div>
-          <h3>Yes, our treats are irresistible and mouth-watering 🤤</h3>
+          <h3 className={styles.text}>
+            Yes, our treats are irresistible and mouth-watering 🤤
+          </h3>
         </div>
         <div className={styles.item}>
           <h1 className={styles.title}>LOCATE US</h1>
           <p className={styles.text}>
             Plot 18, Ahmadu Bello Crescent,
             <br /> Garki, Abuja.
+            <br /> +234 817 312 7706
           </p>
-          <p>+234 817 312 7706</p>
         </div>
         <div className={styles.item}>
           <h1 className={styles.title}>HOURS AVAILABLE</h1>
