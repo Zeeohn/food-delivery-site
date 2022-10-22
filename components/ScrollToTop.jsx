@@ -1,19 +1,25 @@
 import styles from "../styles/Scroll.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollToTop;
+  useEffect(() => {
+    const toggleVisible = () => {
+      const scrolled = document.documentElement.scrollToTop;
 
-    if (scrolled > 100) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
-  };
+      if (scrolled > 100) {
+        setVisible(true);
+      } else if (scrolled <= 300) {
+        setVisible(false);
+      }
+    };
+    window.addEventListener("scroll", toggleVisible);
+    return () => {
+      window.removeEventListener("scroll", toggleVisible);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -21,8 +27,6 @@ const ScrollToTop = () => {
       behavior: "smooth",
     });
   };
-
-  window.addEventListener("scroll", toggleVisible);
 
   return (
     <button

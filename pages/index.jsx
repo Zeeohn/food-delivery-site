@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Featured from "./../components/Featured";
-import ProductList from "./../components/ProductList";
-import ScrollToTop from "./../components/ScrollToTop";
+import Featured from "../components/Featured";
+import ProductList from "../components/ProductList";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function Home() {
   return (
