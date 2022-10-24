@@ -7,16 +7,18 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.item}>
         <div className={styles.callButton}>
-          <Image
-            src="/images/telephone.png"
-            alt="call icon"
-            width="32"
-            height="32"
-          />
+          <a href="tel: +2348032519487">
+            <Image
+              src="/images/telephone.png"
+              alt="call icon"
+              width="32"
+              height="32"
+            />
+          </a>
         </div>
         <div className={styles.texts}>
           <div className={styles.text}>ORDER NOW</div>
-          <div className={styles.text}>+234 817 312 7706</div>
+          <div className={styles.text}>+234 803 251 9487</div>
         </div>
       </div>
       <div className={styles.item}>
@@ -24,13 +26,17 @@ const Navbar = () => {
           <Link href="/">
             <li className={styles.listItem}>Home</li>
           </Link>
-          <Image
-            src="/images/logo.png"
-            alt="Crown Shawarma Logo"
-            width="200"
-            height="53"
-            className={styles.logo}
-          />
+          <Link href="/">
+            <a>
+              <Image
+                src="/images/logo.png"
+                alt="Crown Shawarma Logo"
+                width="200"
+                height="53"
+                className={styles.logo}
+              />
+            </a>
+          </Link>
           <Link href="/#menus">
             <a>
               <li className={styles.listItem}>Menus</li>

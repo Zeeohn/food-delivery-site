@@ -21,20 +21,60 @@ const Footer = () => {
         <div className={styles.item}>
           <h1 className={styles.title}>LOCATE US</h1>
           <p className={styles.text}>
-            Plot 18, Ahmadu Bello Crescent,
-            <br /> Garki, Abuja.
-            <br /> +234 817 312 7706
+            DeCaptains Lounge, FHA-ENL Paradise
+            <br /> Hill Estate, Guzape, Abuja.
           </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "5px",
+              paddingBottom: "5px",
+            }}
+          >
+            <div className={styles.callButton}>
+              <Image
+                src="/images/telephone.png"
+                alt="call icon"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span>
+              <a href="tel: +2348173127706">+234 817 312 7706</a>
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            <div className={styles.callButton}>
+              <Image
+                src="/images/telephone.png"
+                alt="call icon"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span>
+              <a href="tel: +2348032519487">+234 803 251 9487</a>
+            </span>
+          </div>
         </div>
         <div className={styles.item}>
           <h1 className={styles.title}>HOURS AVAILABLE</h1>
           <p className={styles.text}>
             MONDAY - FRIDAY
-            <br /> 10:00am - 10:00pm
+            <br /> 10:00am - 09:00pm
           </p>
           <p className={styles.text}>
             SATURDAY & SUNDAY
-            <br /> 12:00pm - 11:00pm
+            <br /> 12:00pm - 09:00pm
           </p>
         </div>
       </div>

@@ -1,8 +1,19 @@
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
-import { ProductItems } from "./../../components/ProductItems";
+import { ProductItems, extras } from "./../../components/ProductItems";
+import { useState } from "react";
 
 const Product = () => {
+  const [price, setPrice] = useState(0);
+  const addPrice = (e) => {
+    const el = e.target;
+    if (el.checked) {
+      setPrice((prev) => prev + Number(el.dataset.price));
+    } else {
+      setPrice((prev) => prev - Number(el.dataset.price));
+    }
+  };
+
   return (
     <>
       {ProductItems.map((item) => (
@@ -24,43 +35,21 @@ const Product = () => {
             <span className={styles.price}>₦{item.prices[0]}</span>
             <p className={styles.description}>{item.description}</p>
             <h3 className={styles.choose}>Extras: </h3>
+
             <div className={styles.drinks}>
-              <div className={styles.option}>
-                <input
-                  type="checkbox"
-                  id="coke"
-                  name="coke"
-                  className={styles.checkbox}
-                />
-                <label htmlFor="coke">Coke</label>
-              </div>
-              <div className={styles.option}>
-                <input
-                  type="checkbox"
-                  id="pepsi"
-                  name="pepsi"
-                  className={styles.checkbox}
-                />
-                <label htmlFor="pepsi">Pepsi</label>
-              </div>
-              <div className={styles.option}>
-                <input
-                  type="checkbox"
-                  id="fanta"
-                  name="fanta"
-                  className={styles.checkbox}
-                />
-                <label htmlFor="fanta">Fanta</label>
-              </div>
-              <div className={styles.option}>
-                <input
-                  type="checkbox"
-                  id="sprite"
-                  name="sprite"
-                  className={styles.checkbox}
-                />
-                <label htmlFor="sprite">Sprite</label>
-              </div>
+              {extras.map((items) => (
+                <div className={styles.option} key={items.id}>
+                  <input
+                    type="checkbox"
+                    id={items.id}
+                    name={items.name}
+                    data-price={items.price}
+                    onChange={addPrice}
+                    className={styles.checkbox}
+                  />
+                  <label htmlFor={items.id}>{items.title}</label>
+                </div>
+              ))}
             </div>
             <div className={styles.add}>
               <input

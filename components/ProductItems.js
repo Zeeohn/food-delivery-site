@@ -72,3 +72,30 @@ export const ProductItems = [
     alt: "Beef burger",
   },
 ];
+
+export const extras = [
+  {
+    title: "Coke",
+    id: "coke",
+    name: "coke",
+    price: 150,
+  },
+  {
+    title: "Pepsi",
+    id: "pepsi",
+    name: "pepsi",
+    price: 150,
+  },
+  {
+    title: "Fanta",
+    id: "fanta",
+    name: "fanta",
+    price: 150,
+  },
+  {
+    title: "Sprite",
+    id: "sprite",
+    name: "sprite",
+    price: 150,
+  },
+];
