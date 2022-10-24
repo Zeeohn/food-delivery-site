@@ -12,10 +12,6 @@
   box-shadow: 1px 1px 5px 2px grey;
 }
 
-.container:hover {
-  box-shadow: none;
-}
-
 .image {
   border-radius: 50%;
 }
