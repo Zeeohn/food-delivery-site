@@ -5,15 +5,13 @@ import { useEffect, useState } from "react";
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
   
-  useEffect(() => {
   const toggleVisible = () => {
     if (window.pageYOffset > 200) {
       setVisible(true);
     } else {
       setVisible(false);
     }
-  };
- }, []);   
+  };  
 
     const scrollToTop = () => {
       if ( typeof window !== "undefined") {
