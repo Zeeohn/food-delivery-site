@@ -1,6 +1,6 @@
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
-import { ProductItems, extras } from "./../../components/ProductItems";
+import { ProductItems, extras } from "./../../data/ProductItems";
 import { useState } from "react";
 
 const Product = () => {
