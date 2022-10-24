@@ -38,12 +38,12 @@ const Featured = () => {
       >
         {images.map((img, i) => (
           <div className={styles.imgContainer} key={i}>
-            <Image src={img} alt="Hero image" width={1280} height={720} />
+            <Image src={img} alt="Hero image" width={1280} height={720} priority="true" />
           </div>
         ))}
         {imagesM.map((imgM, ig) => (
           <div className={styles.imgMContainer} key={ig}>
-            <Image src={imgM} alt="Hero image" width={810} height={1440} />
+            <Image src={imgM} alt="Hero image" width={810} height={1440} priority="true"/>
           </div>
         ))}
       </div>
