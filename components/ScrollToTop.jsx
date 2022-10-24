@@ -15,13 +15,13 @@ const ScrollToTop = () => {
   };
  }, []);   
 
-  useEffect(() => {
     const scrollToTop = 
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
     
+ useEffect(() => {
     window.addEventListener("scroll", toggleVisible);
 
     return () => {
