@@ -1,6 +1,6 @@
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
-import { ProductItems } from "./../../components/ProductItems";
+import { ProductItems } from "./../../data/ProductItems";
 
 const Product = () => {
   return (

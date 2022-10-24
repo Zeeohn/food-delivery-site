@@ -21,9 +21,12 @@ const Navbar = () => {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <Link href="/">
-            <li className={styles.listItem}>Home</li>
-          </Link>
+          <li className={styles.listItem}>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+
           <Image
             src="/images/logo.png"
             alt="Crown Shawarma Logo"
@@ -31,11 +34,11 @@ const Navbar = () => {
             height="53"
             className={styles.logo}
           />
-          <Link href="/#menus">
-            <a>
-              <li className={styles.listItem}>Menus</li>
-            </a>
-          </Link>
+          <li className={styles.listItem}>
+            <Link href="/#menus">
+              <a>Menus</a>
+            </Link>
+          </li>
         </ul>
       </div>
       <div className={styles.item}>
