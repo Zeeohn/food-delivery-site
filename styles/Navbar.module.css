@@ -65,6 +65,7 @@
 
 .cart {
   position: relative;
+  cursor: pointer;
 }
 
 .counter {

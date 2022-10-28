@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Featured from "./../components/Featured";
-import ProductList from "./../components/ProductList";
-import ScrollToTop from "./../components/ScrollToTop";
+import Featured from "../components/Featured";
+import ProductList from "../components/ProductList";
+import ScrollToTop from "../components/ScrollToTop";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ productList }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +15,7 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="Best Shawarma and Small Chops shop in FCT-Abuja"
+          content="Best Shawarma and Small Chops eatery in FCT-Abuja"
         />
         <meta
           name="keywords"
@@ -24,8 +25,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
-      <ProductList />
+      <ProductList productList={productList} />
       <ScrollToTop />
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const res = await axios.get("http://localhost:3000/api/products");
+  return {
+    props: {
+      productList: res.data,
+    },
+  };
+};

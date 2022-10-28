@@ -4,23 +4,24 @@ import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
-
+  
   const toggleVisible = () => {
     if (window.pageYOffset > 200) {
       setVisible(true);
     } else {
       setVisible(false);
     }
-  };
+  };  
 
-  const scrollToTop = useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-
-  useEffect(() => {
+    const scrollToTop = () => {
+      if ( typeof window !== "undefined") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+    })};
+    };
+    
+ useEffect(() => {
     window.addEventListener("scroll", toggleVisible);
 
     return () => {
