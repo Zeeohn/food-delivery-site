@@ -1,21 +1,24 @@
 import mongoose from "mongoose";
 
-const OrderSchema = new mongoose.Schema(
+const PaymentSchema = new mongoose.Schema(
   {
     customer: {
       type: String,
       required: true,
       maxlength: 60,
     },
-    address: {
-      type: String,
-      required: true,
-      maxlength: 300,
-    },
     phone: {
       type: Number,
       required: true,
       maxlength: 11,
+    },
+    order: {
+      type: String,
+      required: true,
+    },
+    reference: {
+      type: String,
+      required: true,
     },
     total: {
       type: Number,
@@ -25,12 +28,9 @@ const OrderSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    method: {
-      type: Number,
-      required: true,
-    },
   },
   { timestamps: true }
 );
 
-export default mongoose.models.Order || mongoose.model("Order", OrderSchema);
+export default mongoose.models.Payment ||
+  mongoose.model("Payment", PaymentSchema);

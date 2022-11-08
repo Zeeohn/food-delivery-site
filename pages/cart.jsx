@@ -2,11 +2,29 @@ import styles from "../styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { reset } from "../redux/cartSlice";
+import OrderDetails from "./../components/OrderDetails";
+import PaystackForm from "./../components/PaystackForm";
 
 const Cart = () => {
-  const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const [open, setOpen] = useState(false);
+  const [cashPayment, setCashPayment] = useState(false);
+  const amount = cart.total;
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const createOrder = async (data) => {
+    try {
+      const res = await axios.post("http://localhost:3000/api/orders", data);
+      res.status === 201 && router.push("/orders/" + res.data._id);
+      dispatch(reset());
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -76,9 +94,26 @@ const Cart = () => {
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Total: </b>₦{cart.total}
           </div>
-          <button className={styles.button}>CHECKOUT</button>
+          {open ? (
+            <div className={styles.paymentMethods}>
+              <button
+                className={styles.payButton}
+                onClick={() => setCashPayment(true)}
+              >
+                CASH ON DELIVERY
+              </button>
+              <PaystackForm />
+            </div>
+          ) : (
+            <button onClick={() => setOpen(true)} className={styles.button}>
+              CHECKOUT
+            </button>
+          )}
         </div>
       </div>
+      {cashPayment && (
+        <OrderDetails total={cart.total} createOrder={createOrder} />
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
 import { ProductItems, extras } from "./../../data/ProductItems";
+import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -30,10 +31,12 @@ const Product = ({ foods }) => {
 
   const handleClick = () => {
     dispatch(addProduct({ ...foods, extra, price, quantity }));
+    toast.success("Product added to cart!");
   };
 
   return (
     <div className={styles.container}>
+      <Toaster toastOptions={{ duration: 5000 }} />
       <div className={styles.left}>
         <div className={styles.imgContainer}>
           <Image
