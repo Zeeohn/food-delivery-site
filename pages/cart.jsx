@@ -12,6 +12,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
   const [cashPayment, setCashPayment] = useState(false);
+  const [cardPayment, setCardPayment] = useState(false);
   const amount = cart.total;
   const dispatch = useDispatch();
   const router = useRouter();
@@ -102,7 +103,12 @@ const Cart = () => {
               >
                 CASH ON DELIVERY
               </button>
-              <PaystackForm />
+              <button
+                className={styles.payButton}
+                
+              >
+                PAY ONLINE
+              </button>
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className={styles.button}>
@@ -114,6 +120,7 @@ const Cart = () => {
       {cashPayment && (
         <OrderDetails total={cart.total} createOrder={createOrder} />
       )}
+      {/* {cardPayment && <PaystackForm amount={cart.total} />} */}
     </div>
   );
 };

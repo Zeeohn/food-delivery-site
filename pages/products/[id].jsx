@@ -74,6 +74,7 @@ const Product = ({ foods }) => {
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
             defaultValue={1}
+            min="1"
             className={styles.quantity}
           />
           <button className={styles.button} onClick={handleClick}>

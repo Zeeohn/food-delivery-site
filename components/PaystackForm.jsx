@@ -7,9 +7,7 @@ const PaystackForm = ({ amount }) => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleClick = () => {
-    
-  };
+  const handleClick = () => {};
 
   return (
     <div className={styles.container}>
@@ -23,6 +21,7 @@ const PaystackForm = ({ amount }) => {
           <input
             placeholder="e.g David Adebayo"
             type="text"
+            required
             className={styles.input}
             onChange={(e) => setCustomer(e.target.value)}
           />
@@ -34,6 +33,7 @@ const PaystackForm = ({ amount }) => {
           <input
             placeholder="e.g example@example.com"
             type="email"
+            required
             className={styles.input}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -45,6 +45,9 @@ const PaystackForm = ({ amount }) => {
           <input
             placeholder="e.g 08122479317"
             type="tel"
+            minlength="11"
+            maxlength="11"
+            required
             className={styles.input}
             onChange={(e) => setPhone(e.target.value)}
           />
@@ -56,6 +59,7 @@ const PaystackForm = ({ amount }) => {
           <textarea
             placeholder="e.g No. 10, Nnamdi Azikiwe Street, Garki 2"
             type="text"
+            required
             className={styles.input}
             onChange={(e) => setAddress(e.target.value)}
           />
