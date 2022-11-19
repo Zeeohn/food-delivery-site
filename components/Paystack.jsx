@@ -55,8 +55,6 @@ const PaystackPayment = ({
       case "Make Payment":
         setPaymentText("Loading...");
         try {
-          //todo: save the order first
-
           //todo: save the payment
           const { data } = await axios.post(
             "http://localhost:3000/api/payments",
