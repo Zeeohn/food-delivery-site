@@ -7,6 +7,7 @@ import axios from "axios";
 import { reset } from "../redux/cartSlice";
 import OrderDetails from "./../components/OrderDetails";
 import PaystackForm from "./../components/PaystackForm";
+import PaystackPayment from "../components/Paystack";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -105,7 +106,7 @@ const Cart = () => {
               </button>
               <button
                 className={styles.payButton}
-                
+                onClick={() => setCardPayment((prev) => true)}
               >
                 PAY ONLINE
               </button>
@@ -120,7 +121,7 @@ const Cart = () => {
       {cashPayment && (
         <OrderDetails total={cart.total} createOrder={createOrder} />
       )}
-      {/* {cardPayment && <PaystackForm amount={cart.total} />} */}
+      {cardPayment && <PaystackForm amount={cart.total} />}
     </div>
   );
 };

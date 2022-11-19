@@ -17,7 +17,7 @@ export const formatPrice = (price) => {
     priceToConvert = price;
   }
 
-  return new Int1.NumberFormat("en-Us").format(priceToConvert);
+  return new Intl.NumberFormat("en-Us").format(priceToConvert);
 };
 
 export const getErrorMessage = (e) => {

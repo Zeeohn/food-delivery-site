@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { APP_NAME, MESSAGES } from "./../util/constants";
 import { formatPrice, getErrorMessage } from "./../util/index";
 import axios from "axios";
-
+import styles from "../styles/PaystackPayment.module.css";
 const PaystackPayment = ({
   onComplete,
   email,
@@ -123,7 +123,9 @@ const PaystackPayment = ({
           </p>
 
           {!paymentText.includes(".") ? (
-            <button className={styles.button} onClick={performPayment}>Pay Now</button>
+            <button className={styles.button} onClick={performPayment}>
+              Pay Now
+            </button>
           ) : (
             <div className={styles.loader}>
               <span className={styles.spinner}></span>

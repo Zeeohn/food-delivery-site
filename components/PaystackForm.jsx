@@ -1,5 +1,6 @@
 import styles from "../styles/PaystackForm.module.css";
 import { useState } from "react";
+import PaystackPayment from "./Paystack";
 
 const PaystackForm = ({ amount }) => {
   const [customer, setCustomer] = useState("");
@@ -64,9 +65,15 @@ const PaystackForm = ({ amount }) => {
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <button className={styles.button} onClick={handleClick}>
+        {/* <button className={styles.button} onClick={handleClick}>
           Complete Order
-        </button>
+        </button> */}
+        <PaystackPayment
+          email={email}
+          amount={amount * 100}
+          orderId={"test-id"}
+          onComplete={() => console.log("Order completed")}
+        />
       </div>
     </div>
   );
