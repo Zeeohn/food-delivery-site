@@ -11,6 +11,7 @@ import PaystackPayment from "../components/Paystack";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const products = cart.products;
   const [open, setOpen] = useState(false);
   const [cashPayment, setCashPayment] = useState(false);
   const [cardPayment, setCardPayment] = useState(false);
@@ -20,7 +21,19 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/orders", data);
+      const res = await axios.post("http://localhost:3000/api/orders", {
+        ...data,
+        items: products.map((product) => ({
+          productId: product._id,
+          productName: product.title,
+          price: product.price,
+          qtn: +product.quantity,
+          extras: product.extras.map((extra) => ({
+            text: extra.text,
+            price: extra.price,
+          })),
+        })),
+      });
       res.status === 201 && router.push("/orders/" + res.data._id);
       dispatch(reset());
     } catch (err) {

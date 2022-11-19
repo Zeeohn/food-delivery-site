@@ -55,10 +55,14 @@ const PaystackPayment = ({
       case "Make Payment":
         setPaymentText("Loading...");
         try {
+          //todo: save the order first
+
+          //todo: save the payment
           const { data } = await axios.post(
             "http://localhost:3000/api/payments",
             { reference: refNum, order: orderId, total: amount }
           );
+          //todo: make payment
           makePayment(
             (ref) => onSuccess(ref),
             () => setPaymentText("Uh-oh, you need to make a payment")

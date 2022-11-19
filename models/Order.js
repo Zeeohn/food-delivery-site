@@ -29,6 +29,20 @@ const OrderSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    items: [
+      {
+        productId: String,
+        productName: String,
+        price: Number,
+        qtn: Number,
+        extras: [
+          {
+            text: String,
+            price: String,
+          },
+        ],
+      },
+    ],
   },
   { timestamps: true }
 );

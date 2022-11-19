@@ -71,7 +71,6 @@ const PaystackForm = ({ amount }) => {
         <PaystackPayment
           email={email}
           amount={amount * 100}
-          orderId={"test-id"}
           onComplete={() => console.log("Order completed")}
         />
       </div>
