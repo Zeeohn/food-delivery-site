@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { APP_NAME, MESSAGES } from "./../util/constants";
 import { formatPrice, getErrorMessage } from "./../util/index";
 import axios from "axios";
-
+import styles from "../styles/PaystackPayment.module.css";
 const PaystackPayment = ({
   onComplete,
   email,
@@ -55,10 +55,12 @@ const PaystackPayment = ({
       case "Make Payment":
         setPaymentText("Loading...");
         try {
+          //todo: save the payment
           const { data } = await axios.post(
             "http://localhost:3000/api/payments",
             { reference: refNum, order: orderId, total: amount }
           );
+          //todo: make payment
           makePayment(
             (ref) => onSuccess(ref),
             () => setPaymentText("Uh-oh, you need to make a payment")
@@ -123,7 +125,9 @@ const PaystackPayment = ({
           </p>
 
           {!paymentText.includes(".") ? (
-            <button className={styles.button} onClick={performPayment}>Pay Now</button>
+            <button className={styles.button} onClick={performPayment}>
+              Pay Now
+            </button>
           ) : (
             <div className={styles.loader}>
               <span className={styles.spinner}></span>

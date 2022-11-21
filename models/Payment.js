@@ -1,19 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
 const PaymentSchema = new mongoose.Schema(
   {
-    customer: {
-      type: String,
-      required: true,
-      maxlength: 60,
-    },
-    phone: {
-      type: Number,
-      required: true,
-      maxlength: 11,
-    },
     order: {
-      type: String,
+      type: Types.ObjectId,
+      ref: "Order",
       required: true,
     },
     reference: {
@@ -34,3 +25,5 @@ const PaymentSchema = new mongoose.Schema(
 
 export default mongoose.models.Payment ||
   mongoose.model("Payment", PaymentSchema);
+
+//todo: const data = await model.findOne({}).populate("order").exec()
