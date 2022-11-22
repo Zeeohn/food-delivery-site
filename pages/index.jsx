@@ -5,14 +5,23 @@ import Featured from "../components/Featured";
 import ProductList from "../components/ProductList";
 import ScrollToTop from "../components/ScrollToTop";
 import axios from "axios";
+import { useState } from "react";
+import TrackOrder from "./../components/TrackOrder";
+import TrackButton from "./../components/TrackButton";
 
 export default function Home({ productList }) {
+  const [close, setClose] = useState(true);
   return (
     <div className={styles.container}>
       <Head>
         <title>
           Crown Shawarma || Shawarma and Small Chops Restaurant in Abuja
         </title>
+        <meta
+          property="og:image"
+          name="image"
+          content="/images/chicken-burger.jpg"
+        />
         <meta
           name="description"
           content="Best Shawarma and Small Chops eatery in FCT-Abuja"
@@ -25,7 +34,9 @@ export default function Home({ productList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
+      <TrackButton setClose={setClose} />
       <ProductList productList={productList} />
+      {!close && <TrackOrder setClose={setClose} />}
       <ScrollToTop />
     </div>
   );

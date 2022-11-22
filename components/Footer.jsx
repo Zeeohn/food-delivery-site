@@ -42,7 +42,9 @@ const Footer = () => {
               />
             </div>
             <span>
-              <a href="tel: +2348173127706">+234 817 312 7706</a>
+              <a href="tel: +2348173127706" style={{ color: "white" }}>
+                +234 817 312 7706
+              </a>
             </span>
           </div>
           <div
@@ -62,7 +64,9 @@ const Footer = () => {
               />
             </div>
             <span>
-              <a href="tel: +2348032519487">+234 803 251 9487</a>
+              <a href="tel: +2348032519487" style={{ color: "white" }}>
+                +234 803 251 9487
+              </a>
             </span>
           </div>
         </div>

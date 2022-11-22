@@ -39,8 +39,8 @@ const OrderDetails = ({ total, createOrder }) => {
             <input
               placeholder="e.g 08122479317"
               type="tel"
-              minlength="11"
-              maxlength="11"
+              minLength="11"
+              maxLength="11"
               required
               className={styles.input}
               onChange={(e) => setPhone(e.target.value)}
@@ -58,7 +58,11 @@ const OrderDetails = ({ total, createOrder }) => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <button className={styles.button}>Complete Order</button>
+          <input
+            type="submit"
+            value="Complete Order"
+            className={styles.button}
+          />
         </div>
       </form>
     </div>
