@@ -3,6 +3,7 @@ import { useState } from "react";
 import PaystackPayment from "./Paystack";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const PaystackForm = ({ amount }) => {
   const [customer, setCustomer] = useState("");
@@ -13,6 +14,7 @@ const PaystackForm = ({ amount }) => {
   const [showPayment, setShowPayment] = useState(false);
   const cart = useSelector((state) => state.cart);
   const products = cart.products;
+  const router = useRouter();
 
   const createOrder = async () => {
     try {
@@ -101,7 +103,9 @@ const PaystackForm = ({ amount }) => {
             email={email}
             orderId={orderId}
             amount={amount * 100}
-            onComplete={() => console.log("Order completed")}
+            onComplete={() =>
+              res.status === 201 && router.push("/orders/" + res.data._id)
+            }
           />
         ) : (
           <button className={styles.button} onClick={createOrder}>

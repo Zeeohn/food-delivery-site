@@ -15,7 +15,6 @@ const OrderDetails = ({ total, createOrder }) => {
 
   return (
     <div className={styles.container}>
-      <Toaster toastOptions={{ duration: 5000 }} />
       <form onSubmit={handleClick}>
         <div className={styles.wrapper}>
           <h1 className={styles.title}>You will pay ₦1,000 for delivery!</h1>

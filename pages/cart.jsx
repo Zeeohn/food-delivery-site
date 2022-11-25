@@ -41,6 +41,10 @@ const Cart = () => {
     }
   };
 
+  const handleDelete = () => {
+    dispatch(deleteProduct());
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -90,6 +94,11 @@ const Cart = () => {
                 <td className={styles.pad}>
                   <span className={styles.total}>
                     ₦{product.prices * product.quantity}
+                  </span>
+                </td>
+                <td>
+                  <span onClick={handleDelete} className={styles.close}>
+                    X
                   </span>
                 </td>
               </tr>

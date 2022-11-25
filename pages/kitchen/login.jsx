@@ -24,26 +24,28 @@ const login = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1>Kitchen Entrance</h1>
+        <form onSubmit={handleClick}>
         <input
           placeholder="username"
           type="text"
           className={styles.input}
+          required
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           placeholder="password"
           type="password"
+          required
           className={styles.input}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleClick} className={styles.button}>
-          Enter!
-        </button>
+        <input type="submit" value="Enter!" className={styles.button} />
         {error && (
           <span className={styles.error}>
             Uh-oh! Wrong key to the kitchen door, try another one!
           </span>
         )}
+        </form>
       </div>
     </div>
   );
