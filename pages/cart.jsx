@@ -8,6 +8,7 @@ import { deleteProduct, reset } from "../redux/cartSlice";
 import OrderDetails from "./../components/OrderDetails";
 import PaystackForm from "./../components/PaystackForm";
 import PaystackPayment from "../components/Paystack";
+import api from "../config/api";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -21,7 +22,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/orders", {
+      const res = await api.post("/orders", {
         ...data,
         items: products.map((product) => ({
           productId: product._id,
