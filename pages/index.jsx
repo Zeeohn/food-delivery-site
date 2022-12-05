@@ -8,6 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 import TrackOrder from "./../components/TrackOrder";
 import TrackButton from "./../components/TrackButton";
+import api from "../config/api";
 
 export default function Home({ productList }) {
   const [close, setClose] = useState(true);
@@ -43,7 +44,7 @@ export default function Home({ productList }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await axios.get("https://crownshawarma.vercel.app/api/products");
+  const res = await api.get("/products");
   return {
     props: {
       productList: res.data,
