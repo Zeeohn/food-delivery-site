@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import api from "../../config/api";
 
 const Product = ({ foods }) => {
   const [price, setPrice] = useState(foods.prices);
@@ -87,8 +88,8 @@ const Product = ({ foods }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(
-    `https://crownshawarma.vercel.app/api/products/${params.id}`
+  const res = await api.get(
+    `/products/${params.id}`
   );
   return {
     props: {
