@@ -1,0 +1,25 @@
+@ref=rasta
+@baseURL = http://localhost:3000/api
+
+####
+GET http://localhost:3000/api/payments/verify?reference={{ref}}
+
+
+###
+
+POST http://localhost:3000/api/payments/verify
+
+
+
+### payment update
+PUT {{baseURL}}/payments
+Content-Type: application/json
+
+{
+    "reference": "CROWN-20221205T184903",
+    "status": "1"
+}
+
+
+###get payments
+GET {{baseURL}}/payments

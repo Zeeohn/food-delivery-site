@@ -6,6 +6,7 @@ import { APP_NAME, MESSAGES } from "./../util/constants";
 import { formatPrice, getErrorMessage } from "./../util/index";
 import axios from "axios";
 import styles from "../styles/PaystackPayment.module.css";
+import api from "../config/api";
 const PaystackPayment = ({
   onComplete,
   email,
@@ -35,7 +36,7 @@ const PaystackPayment = ({
     email,
     amount,
     reference: refNum,
-    publicKey: process.env.PUBLIC_PAYSTACK_KEY,
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_KEY,
   });
 
   useEffect(() => {
@@ -56,10 +57,11 @@ const PaystackPayment = ({
         setPaymentText("Loading...");
         try {
           //todo: save the payment
-          const { data } = await axios.post(
-            "http://localhost:3000/api/payments",
-            { reference: refNum, order: orderId, total: amount }
-          );
+          const { data } = await api.post("/payments", {
+            reference: refNum,
+            order: orderId,
+            total: amount,
+          });
           //todo: make payment
           makePayment(
             (ref) => onSuccess(ref),
@@ -80,9 +82,7 @@ const PaystackPayment = ({
   const verifyPayment = async () => {
     setPaymentText("Validating Payment...");
     try {
-      const { data } = await axios.get(
-        `http://localhost:3000/api/payments/verify?&reference=${refNum}`
-      );
+      const { data } = await api.get(`/payments/verify?reference=${refNum}`);
       toast.success("Payment Successful!");
       updatePayment();
       setPaymentText("Done");
@@ -93,12 +93,12 @@ const PaystackPayment = ({
 
   const updatePayment = async () => {
     try {
-      const { data } = await axios.patch("http://localhost:3000/api/payments", {
+      const { data } = await api.put("/payments", {
         reference: refNum,
         status: 1,
       });
       setPaymentSuccessfulText("Payment Successful! Your order is complete!");
-      setTimeout(() => onComplete(refNum), 3000);
+      setTimeout(() => onComplete(data.isSaved), 3000);
     } catch (e) {
       toast.error("Failed to update Payment status");
     }

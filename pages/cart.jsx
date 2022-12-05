@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { reset } from "../redux/cartSlice";
+import { deleteProduct, reset } from "../redux/cartSlice";
 import OrderDetails from "./../components/OrderDetails";
 import PaystackForm from "./../components/PaystackForm";
 import PaystackPayment from "../components/Paystack";
@@ -41,8 +41,8 @@ const Cart = () => {
     }
   };
 
-  const handleDelete = () => {
-    dispatch(deleteProduct());
+  const handleDelete = (product) => {
+    dispatch(deleteProduct(product));
   };
 
   return (
@@ -97,7 +97,10 @@ const Cart = () => {
                   </span>
                 </td>
                 <td>
-                  <span onClick={handleDelete} className={styles.close}>
+                  <span
+                    onClick={() => handleDelete(product)}
+                    className={styles.close}
+                  >
                     X
                   </span>
                 </td>

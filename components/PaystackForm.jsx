@@ -2,9 +2,11 @@ import styles from "../styles/PaystackForm.module.css";
 import { useState } from "react";
 import PaystackPayment from "./Paystack";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-
+import api from "../config/api";
+import toast from "react-hot-toast";
+import { reset } from "../redux/cartSlice";
 const PaystackForm = ({ amount }) => {
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
@@ -13,12 +15,14 @@ const PaystackForm = ({ amount }) => {
   const [orderId, setOrderId] = useState("");
   const [showPayment, setShowPayment] = useState(false);
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const products = cart.products;
   const router = useRouter();
 
   const createOrder = async () => {
+    toast.loading("Loading...");
     try {
-      const { data } = await axios.post("http://localhost:3000/api/orders", {
+      const { data } = await api.post("/orders", {
         customer,
         address,
         phone,
@@ -40,6 +44,17 @@ const PaystackForm = ({ amount }) => {
       setShowPayment(true);
     } catch (err) {
       console.log(err);
+    } finally {
+      toast.dismiss();
+    }
+  };
+
+  const onComplete = (isSaved) => {
+    if (isSaved) {
+      dispatch(reset());
+      router.push(`/orders/${orderId}`);
+    } else {
+      router.push("/cart");
     }
   };
 
@@ -103,9 +118,7 @@ const PaystackForm = ({ amount }) => {
             email={email}
             orderId={orderId}
             amount={amount * 100}
-            onComplete={() =>
-              res.status === 201 && router.push("/orders/" + res.data._id)
-            }
+            onComplete={onComplete}
           />
         ) : (
           <button className={styles.button} onClick={createOrder}>

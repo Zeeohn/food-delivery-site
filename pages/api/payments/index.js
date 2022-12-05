@@ -23,4 +23,26 @@ export default async function handler(req, res) {
       res.status(500).json(err);
     }
   }
+  if (method === "PUT") {
+    console.log(req.headers);
+    try {
+      const { reference, status } = req.body;
+      console.log(reference);
+      const payment = await Payment.updateOne(
+        { reference },
+        { status },
+        { new: true }
+      );
+      // console.log(payment);
+      res.status(200).json({
+        msg:
+          payment.modifiedCount >= 1
+            ? "Payment updated successfully"
+            : "No payment to update",
+        isSaved: payment.modifiedCount >= 1 ? true : false,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 }
