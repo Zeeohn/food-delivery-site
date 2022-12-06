@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     router.events.on("routeChangeStart", (url) => {
       console.log("Route is changing...");
       NProgress.start();
-      loading();
+      loading(true);
     });
     router.events.on("routeChangeComplete", (url) => {
       console.log("Route changing completed...");
