@@ -2,7 +2,7 @@ import styles from "../styles/AddProduct.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import api from "../../config/api";
+import api from "../config/api";
 
 const AddProduct = ({ setClose }) => {
   const [file, setFile] = useState(null);
