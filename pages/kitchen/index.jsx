@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import AddButton from "./../../components/AddButton";
 import AddProduct from "./../../components/AddProduct";
+import api from "../../config/api";
 
 const index = ({ orders, products }) => {
   const [productList, setProductList] = useState(products);
@@ -14,8 +15,8 @@ const index = ({ orders, products }) => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(
-        `http://localhost:3000/api/products/${id}`
+      const res = await api.delete(
+        `/products/${id}`
       );
       setProductList(productList.filter((food) => food._id !== id));
     } catch (err) {
@@ -28,7 +29,7 @@ const index = ({ orders, products }) => {
     const currentStatus = item.status;
 
     try {
-      const res = await axios.patch(`http://localhost:3000/api/orders/${id}`, {
+      const res = await api.patch(`/orders/${id}`, {
         status: currentStatus + 1,
       });
       setOrderList([
@@ -147,8 +148,8 @@ export const getServerSideProps = async (ctx) => {
     };
   }
 
-  const productRes = await axios.get("http://localhost:3000/api/products");
-  const orderRes = await axios.get("http://localhost:3000/api/orders");
+  const productRes = await api.get("/products");
+  const orderRes = await api.get("/orders");
 
   return {
     props: {
