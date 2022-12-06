@@ -2,6 +2,7 @@ import styles from "../../styles/Login.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import api from "../../config/api";
 
 const login = () => {
   const [username, setUsername] = useState(null);
@@ -11,7 +12,7 @@ const login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post("https://crownshawarma.vercel.app/api/login", {
+      await api.post("/login", {
         username,
         password,
       });
