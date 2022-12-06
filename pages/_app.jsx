@@ -12,14 +12,14 @@ import { Toaster } from "react-hot-toast";
 NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     router.events.on("routeChangeStart", (url) => {
       console.log("Route is changing...");
       NProgress.start();
-      loading(true);
+      setLoading(true);
     });
     router.events.on("routeChangeComplete", (url) => {
       console.log("Route changing completed...");
